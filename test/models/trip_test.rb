@@ -1,6 +1,6 @@
 require "test_helper"
 
-describe Trip do
+xdescribe Trip do
   it "can be instantiated" do
     # Your code here
   end
