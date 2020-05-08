@@ -5,6 +5,7 @@ class CreateTrips < ActiveRecord::Migration[6.0]
       t.integer :rating
       t.float :cost
 
+      # TODO timestamps should have a trip completed?
       t.timestamps
     end
   end
