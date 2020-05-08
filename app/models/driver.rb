@@ -1,3 +1,3 @@
-class Driver < ApplicationRecordi 
+class Driver < ApplicationRecord
   has_many :trips
 end
