@@ -32,7 +32,7 @@ class PassengersController < ApplicationController
   def create
     @passenger = Passenger.new(
       name: params[:passenger][:name],
-      phone_number: params[:passenger][:phone_number]
+      phone_num: params[:passenger][:phone_num]
     )
     if @passenger.save
       redirect_to passenger_path(@passenger.id) # Send them to the passenger just created
@@ -63,7 +63,7 @@ class PassengersController < ApplicationController
       return
     elsif @passenger.update(
       name: params[:passenger][:name],
-      phone_number: params[:passenger][:phone_number]
+      phone_num: params[:passenger][:phone_num]
     )
       redirect_to root_path # go to the index
       return

@@ -4,7 +4,7 @@
 
     <li>
       <strong><%= link_to passenger.name, passenger_path(passenger) %></strong> <br /> 
-      <%= passenger.phone_number %>
+      <%= passenger.phone_num %>
       <br />
       <%= link_to "Edit", edit_passenger_path(passenger) %> |
       <%= link_to "Delete", passenger_path(passenger), method: :delete, data: {confirm: "Are you sure?"} %>
