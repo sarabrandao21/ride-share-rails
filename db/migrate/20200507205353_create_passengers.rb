@@ -4,6 +4,7 @@ class CreatePassengers < ActiveRecord::Migration[6.0]
       t.string :name
       t.string :phone_number
 
+      # TODO do we need timestamps here?
       t.timestamps
     end
   end
