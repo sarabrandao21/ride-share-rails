@@ -8,7 +8,16 @@
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-
+  <header>
+    <h1>Welcome to Ada Ride Share</h1>
+    <nav>
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li><%= link_to "Riders", passengers_path %></li>
+        <li>Drivers</li>
+      </ul>
+    </nav>
+  </header>
   <body>
     <%= yield %>
   </body>
