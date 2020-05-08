@@ -59,7 +59,7 @@ describe Driver do
   end
 
   # Tests for methods you create should go here
-  describe "custom methods" do
+  xdescribe "custom methods" do
     describe "average rating" do
       # Your code here
     end
