@@ -25,7 +25,7 @@
           <%= link_to trip.id, trip_path(trip.id) %>
         </td>
         <td>
-          <%= trip.date %>
+          <%= trip.date.strftime("%m/%d/%Y") %>
         </td>
         <td>
           <%= trip.driver_id %>

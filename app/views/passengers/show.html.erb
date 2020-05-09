@@ -2,7 +2,6 @@
 
 <p><strong>Phone Number: </strong><%= @passenger.phone_num %></p>
 <p><strong>Total Charged: </strong><%= @passenger.total_cost %></p>
-<!-- # TODO add total cost of trips -->
 
 Add New Trip | <%= link_to "Edit", edit_passenger_path(@passenger.id) %> | 
 <%= link_to "Delete", passenger_path(@passenger.id), method: :delete, data: {confirm: "Are you sure?"} %>
@@ -23,7 +22,7 @@ Add New Trip | <%= link_to "Edit", edit_passenger_path(@passenger.id) %> |
           <%= link_to trip.id, trip_path(trip.id) %>
         </td>
         <td>
-          <%= trip.date %>
+          <%= trip.date.strftime("%m/%d/%Y")%>
         </td>
         <td>
           <%= trip.driver_id %>
