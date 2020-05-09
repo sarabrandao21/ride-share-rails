@@ -3,9 +3,8 @@
 <p><strong>VIN: </strong><%=@driver.vin %></p>
 <p><strong>Status: </strong><%= @driver.available ? "Available" : "Not Available" %></p>
 <p><strong>Total Earnings: </strong> <%= @driver.total_rides %></p>
-<!-- # TODO Need to add logic for total earnings -->
 <p><strong>Average Rating: </strong> <%= @driver.average_rating %></p>
-<!-- # TODO Need to add logic for average rating -->
+
 
 <%= link_to "Edit", edit_driver_path(@driver.id) %> | 
 <%= link_to "Delete", driver_path(@driver.id), method: :delete, data: {confirm: "Are you sure?"} %>

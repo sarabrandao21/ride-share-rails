@@ -1,12 +1,9 @@
 class Passenger < ApplicationRecord
   has_many :trips
   
-  # TODO Need to add total cost of trips
-  def self.total_cost 
+  def total_cost 
     total_cost = 0 
-    @passenger.trips do |trip|
-      total_cost += trip.cost 
-    end 
+    self.trips.each  { |trip| total_cost += trip.cost }
     return total_cost
   end 
 end

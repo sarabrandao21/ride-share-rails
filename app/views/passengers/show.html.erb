@@ -1,7 +1,7 @@
 <h2> <strong>Rider name: </strong><%=  @passenger.name %> </h2>
 
 <p><strong>Phone Number: </strong><%= @passenger.phone_num %></p>
-
+<p><strong>Total Charged: </strong><%= @passenger.total_cost %></p>
 <!-- # TODO add total cost of trips -->
 
 Add New Trip | <%= link_to "Edit", edit_passenger_path(@passenger.id) %> | 
