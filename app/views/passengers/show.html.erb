@@ -1,9 +1,42 @@
 <h2> <strong>Rider name: </strong><%=  @passenger.name %> </h2>
 
-<h5><strong>Phone Number: </strong><%= @passenger.phone_num %></h5>
+<p><strong>Phone Number: </strong><%= @passenger.phone_num %></p>
 
-<%= link_to "Edit", edit_passenger_path(@passenger.id) %> | 
+<!-- # TODO add total cost of trips -->
+
+Add New Trip | <%= link_to "Edit", edit_passenger_path(@passenger.id) %> | 
 <%= link_to "Delete", passenger_path(@passenger.id), method: :delete, data: {confirm: "Are you sure?"} %>
+
+<!-- # TODO Request a ride should be an autocreate button, not a form -->
+<h3>Trips</h3>
+  <table>
+    <tr>
+      <th>ID</th>
+      <th>Date</th>
+      <th>Driver</th>
+      <th>Cost</th>
+      <th>Rating</th>
+    </tr>
+    <% @passenger.trips.each do |trip|  %>
+      <tr>
+        <td>
+          <%= link_to trip.id, trip_path(trip.id) %>
+        </td>
+        <td>
+          <%= trip.date %>
+        </td>
+        <td>
+          <%= trip.driver_id %>
+        </td>
+        <td>
+          <%= trip.cost %>
+        </td>
+        <td>
+          <%= trip.rating %>
+        </td>
+      </tr>
+  <% end %>
+  </table>
 
 <p> <%= link_to "Return to Riders List", passengers_path %> </p>
 

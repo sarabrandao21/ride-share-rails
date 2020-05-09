@@ -22,6 +22,7 @@ class DriversController < ApplicationController
   end
   
   def update
+    
     @driver = Driver.find_by(id: params[:id])
     if @driver.nil?
       head :not_found
@@ -46,7 +47,7 @@ class DriversController < ApplicationController
     @driver = Driver.new(
       name: params[:driver][:name],
       vin: params[:driver][:vin],
-      available: params[:driver][:available]
+      available: params[:driver][:available] # TODO add logic to make driver available by default
     )
     if @driver.save
       redirect_to driver_path(@driver.id) 
