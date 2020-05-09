@@ -64,7 +64,7 @@ class PassengersController < ApplicationController
       name: params[:passenger][:name],
       phone_num: params[:passenger][:phone_num]
     )
-      redirect_to root_path # go to the index
+      redirect_to passenger_path(@passenger.id) # Send them to the passenger just edited
       return
     else
       render :edit
