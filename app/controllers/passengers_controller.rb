@@ -16,8 +16,7 @@ class PassengersController < ApplicationController
   def destroy
     passenger_id = params[:id]
     @passenger = Passenger.find_by(id: passenger_id) # searches by param you specify
-    # @passenger = Passenger.find(passenger_id) # always searches by ID
-  
+      
     if @passenger.nil?
       head :not_found  
       return
