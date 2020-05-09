@@ -1,0 +1,14 @@
+<%= form_with model: @passenger, class: 'create-form' do |f| %>
+<p>What task would you like to update?</p>
+<div>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+</div>
+<div>
+  <%= f.label :phone_num %>
+  <%= f.text_field :phone_num %>
+</div>
+<div>
+  <%= f.submit action_name, class: "passenger-button"%>
+</div>
+<% end %>
