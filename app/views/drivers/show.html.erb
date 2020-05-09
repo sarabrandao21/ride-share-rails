@@ -1,7 +1,7 @@
 <h1> <strong>Driver name: </strong><%=  @driver.name %> </h1>
 
 <h5><strong>VIN: </strong><%=@driver.vin%></h5>
-<h5><strong>Status: </strong><%=@driver.available%></h5>
+<h5><strong>Status: </strong><%= @driver.available ? "Available" : "Not Available" %></h5>
 <h5><strong>Total Earnings: </strong></h5>
 <h5><strong>Average Rating: </strong></h5>
 
