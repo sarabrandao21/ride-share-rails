@@ -1,13 +1,45 @@
-<h1> <strong>Driver name: </strong><%=  @driver.name %> </h1>
+<h2> <strong>Driver name: </strong><%=  @driver.name %> </h2>
 
-<h5><strong>VIN: </strong><%=@driver.vin%></h5>
-<h5><strong>Status: </strong><%=@driver.available%></h5>
-<h5><strong>Total Earnings: </strong></h5>
-<h5><strong>Average Rating: </strong></h5>
-
+<p><strong>VIN: </strong><%=@driver.vin%></p>
+<p><strong>Status: </strong><%= @driver.available ? "Available" : "Not Available" %></p>
+<p><strong>Total Earnings: </strong></p>
+<!-- # TODO Need to add logic for total earnings -->
+<p><strong>Average Rating: </strong></p>
+<!-- # TODO Need to add logic for average rating -->
 
 <%= link_to "Edit", edit_driver_path(@driver.id) %> | 
 <%= link_to "Delete", driver_path(@driver.id), method: :delete, data: {confirm: "Are you sure?"} %>
+
+
+<h3>Trips</h3>
+  <table>
+    <tr>
+      <th>ID</th>
+      <th>Date</th>
+      <th>Driver</th>
+      <th>Cost</th>
+      <th>Rating</th>
+    </tr>
+    <% @driver.trips.each do |trip|  %>
+      <tr>
+        <td>
+          <%= link_to trip.id, trip_path(trip.id) %>
+        </td>
+        <td>
+          <%= trip.date %>
+        </td>
+        <td>
+          <%= trip.driver_id %>
+        </td>
+        <td>
+          <%= trip.cost %>
+        </td>
+        <td>
+          <%= trip.rating %>
+        </td>
+      </tr>
+  <% end %>
+  </table>
 
 <p> <%= link_to "Return to Drivers List", drivers_path %> </p>
 

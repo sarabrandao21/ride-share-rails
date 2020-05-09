@@ -1,17 +1,17 @@
 <h2>Riders</h2>
 
 <h4><%= link_to "Add a New Rider", new_passenger_path %></h4>
-<ul>
-  <% @passengers.each do |passenger|  %>
-
-    <li>
-      <strong><%= link_to passenger.name, passenger_path(passenger) %></strong> <br /> 
-      <%= passenger.phone_num %>
-      <br />
-      <%= link_to "Edit", edit_passenger_path(passenger) %> |
-      <%= link_to "Delete", passenger_path(passenger), method: :delete, data: {confirm: "Are you sure?"} %>
-    </li>
+  
+  <table>
+    <tr>
+      <th>Rider Name</th>
+    </tr>
+    <% @passengers.each do |passenger|  %>
+      <tr>
+        <td>
+          <%= link_to passenger.name, passenger_path(passenger) %>
+        </td>
+      </tr>
   <% end %>
-
-</ul>
+  </table>
 
