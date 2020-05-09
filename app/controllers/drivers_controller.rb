@@ -30,7 +30,7 @@ class DriversController < ApplicationController
       name: params[:driver][:name],
       vin: params[:driver][:vin],
       available: params[:driver][:available])
-      redirect_to root_path 
+      redirect_to driver_path(@driver.id) 
       return
     else
       render :edit
@@ -68,7 +68,7 @@ class DriversController < ApplicationController
     
     @driver.destroy
     
-    redirect_to driver_path
+    redirect_to drivers_path
     return
   end 
 end

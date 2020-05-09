@@ -6,7 +6,7 @@
 <h5><strong>Average Rating: </strong></h5>
 
 
-<%= link_to "Edit", edit_driver_path(@driver.id) %>
+<%= link_to "Edit", edit_driver_path(@driver.id) %> | 
 <%= link_to "Delete", driver_path(@driver.id), method: :delete, data: {confirm: "Are you sure?"} %>
 
 <p> <%= link_to "Return to Drivers List", drivers_path %> </p>

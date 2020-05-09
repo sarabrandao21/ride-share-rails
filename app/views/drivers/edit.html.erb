@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <%= form_with model: @driver do |f| %>
  <p>Please provide the following new information to edit the driver in our database:</p>
  <div>
@@ -11,3 +12,8 @@
   <%= f.submit "Edit Driver", class: "task-button"%>
 
 <% end %>
+=======
+<h2>Edit Driver</h2>
+
+<%= render partial: "form", locals: { action_name: "Edit" } %>
+>>>>>>> 110925b1701944850f546c5c98d17bed4270a47e
