@@ -13,12 +13,12 @@
 </p>
 
 
-<p> <strong>Passenger Id:</strong> 
-<%= @trip.passenger_id %>
+<p><strong>Passenger:</strong> 
+<%= link_to @trip.passenger.name, passenger_path(@trip.passenger) %>
 </p>
 
-<p> <strong>Driver Id:</strong> 
-<%= @trip.driver_id %>
+<p><strong>Driver:</strong> 
+<%= link_to @trip.driver.name, driver_path(@trip.driver) %>
 </p>
 
 <%= link_to "Edit", edit_trip_path(@trip.id) %> | 
