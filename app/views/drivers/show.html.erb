@@ -2,7 +2,7 @@
 
 <p><strong>VIN: </strong><%=@driver.vin %></p>
 <p><strong>Status: </strong><%= @driver.available ? "Available" : "Not Available" %></p>
-<p><strong>Total Earnings: </strong> <%= @driver.total_rides %></p>
+<p><strong>Total Earnings: </strong> <%= number_to_currency(@driver.total_rides) %></p>
 <p><strong>Average Rating: </strong> <%= @driver.average_rating %></p>
 
 
@@ -31,7 +31,7 @@
           <%= trip.driver_id %>
         </td>
         <td>
-          <%= trip.cost %>
+          <%= number_to_currency(trip.cost) %>
         </td>
         <td>
           <%= trip.rating %>

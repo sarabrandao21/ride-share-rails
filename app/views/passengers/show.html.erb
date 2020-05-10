@@ -1,7 +1,7 @@
 <h2> <strong>Rider name: </strong><%=  @passenger.name %> </h2>
 
 <p><strong>Phone Number: </strong><%= @passenger.phone_num %></p>
-<p><strong>Total Charged: </strong><%= @passenger.total_cost %></p>
+<p><strong>Total Charged: </strong><%= number_to_currency(@passenger.total_cost) %></p>
 
 Add New Trip | <%= link_to "Edit", edit_passenger_path(@passenger.id) %> | 
 <%= link_to "Delete", passenger_path(@passenger.id), method: :delete, data: {confirm: "Are you sure?"} %>
@@ -28,7 +28,7 @@ Add New Trip | <%= link_to "Edit", edit_passenger_path(@passenger.id) %> |
           <%= trip.driver_id %>
         </td>
         <td>
-          <%= trip.cost %>
+          <%= number_to_currency(trip.cost) %>
         </td>
         <td>
           <%= trip.rating %>

@@ -1,7 +1,7 @@
 <h2> <strong>Trip ID: </strong><%=  @trip.id %> </h2>
 
 <p><strong>Cost:</strong> 
-<%= @trip.cost %>
+<%= number_to_currency(@trip.cost) %>
 </p>
 
 <p><strong>Date:</strong> 
