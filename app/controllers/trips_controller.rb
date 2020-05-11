@@ -38,7 +38,7 @@ class TripsController < ApplicationController
       driver_id: driver.id
     )
     if @trip.save
-      driver.status = "unavailable"
+      driver.available = "false"
       driver.save
       redirect_to passenger_path(params[:passenger_id]) # Send them to the trip just created
       return
