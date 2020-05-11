@@ -1,10 +1,17 @@
 class TripsController < ApplicationController
-
+  
   # TODO do we need index?
   def index
-    @trips = Trip.all
-  end
-
+    
+    if params[:passenger_id] != nil 
+      @trips = Passenger.find_by(id: params[:passenger_id]).trips
+    elsif params[:driver_id] != nil
+      @trips = Driver.find_by(id: params[:driver_id]).trips
+    else 
+      @trips = Trip.all
+    end
+  end 
+  
   def show
     trip_id = params[:id]
     @trip = Trip.find_by(id: trip_id)
@@ -13,21 +20,21 @@ class TripsController < ApplicationController
       return
     end
   end
-    
+  
   def destroy
-     @trip = Trip.find_by(id: params[:id]) # searches by param you specify
-      
+    @trip = Trip.find_by(id: params[:id]) # searches by param you specify
+    
     if @trip.nil?
       head :not_found  
       return
     end
-
+    
     @trip.destroy
-
+    
     redirect_to trips_path
     return
   end
-
+  
   def create
     driver = Trip.find_driver
     date = Date.today
@@ -48,25 +55,25 @@ class TripsController < ApplicationController
       return
     end
   end
-
+  
   # TODO ? Do we need this?
   def new
     @trip = Trip.new
   end
-
+  
   def edit
     @trip = Trip.find_by(id: params[:id])
-
+    
     if @trip.nil?
       head :not_found
       return
     end
   end
-
+  
   def update
     @trip = Trip.find_by(id: params[:id])
-
-
+    
+    
     if @trip.nil?
       head :not_found
       return
@@ -78,11 +85,11 @@ class TripsController < ApplicationController
       return
     end
   end
-
+  
   private
-
+  
   def trip_params
     return params.require(:trip).permit(:rating, :cost, :driver_id, :passenger_id, :date)
   end
-
+  
 end
