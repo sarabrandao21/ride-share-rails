@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   
   resources :trips
   
-  # ? Do we need some kind of patch to say trips are complete ?
+  # ? TODO Do we need some kind of patch to say trips are complete ?
   
   resources :drivers do
     resources :trips, only: [:index, :new]

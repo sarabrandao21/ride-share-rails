@@ -1,8 +1,6 @@
 class TripsController < ApplicationController
   
-  # TODO do we need index?
   def index
-    
     if params[:passenger_id] != nil
       @passenger = Passenger.find_by(id: params[:passenger_id])
       @trips = @passenger.trips
@@ -60,7 +58,13 @@ class TripsController < ApplicationController
   
   # TODO ? Do we need this?
   def new
-    @trip = Trip.new
+    if params[:passenger_id]
+      # This is the nested route, /passenger/:passenger_id/trips/new
+      passenger = Passenger.find_by(id: params[:passenger_id])
+      @trip = passenger.trips.new
+    else
+      @trip = Trip.new
+    end
   end
   
   def edit
