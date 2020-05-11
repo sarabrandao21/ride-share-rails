@@ -34,6 +34,8 @@ class TripsController < ApplicationController
     redirect_to trips_path
     return
   end
+
+  # TODO We need to add nested route for trips / passengers so we can create without a form using the current passenger.
   
   def create
     driver = Trip.find_driver
@@ -56,7 +58,7 @@ class TripsController < ApplicationController
     end
   end
   
-  # TODO ? Do we need this?
+  # TODO ? Do we need this? - only need this if there will be a form.
   def new
     if params[:passenger_id]
       # This is the nested route, /passenger/:passenger_id/trips/new
