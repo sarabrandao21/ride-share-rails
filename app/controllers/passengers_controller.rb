@@ -37,7 +37,7 @@ class PassengersController < ApplicationController
       redirect_to passenger_path(@passenger.id) # Send them to the passenger just created
       return
     else
-      render :new, :bad_request # show the new passenger form again
+      render :new, status: :bad_request # show the new passenger form again
       return
     end
   end
