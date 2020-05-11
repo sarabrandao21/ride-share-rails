@@ -38,10 +38,12 @@ class TripsController < ApplicationController
       driver_id: driver.id
     )
     if @trip.save
+      driver.status = "unavailable"
+      driver.save
       redirect_to passenger_path(params[:passenger_id]) # Send them to the trip just created
       return
     else
-      render :new, :bad_request # show the new trip form again
+      render :new, status: :bad_request # show the new trip form again
       return
     end
   end
