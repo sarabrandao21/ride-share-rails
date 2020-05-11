@@ -36,21 +36,21 @@ describe Driver do
   end
   
   describe "validations" do
-  
+    
     it "must have a name" do
       # Arrange
       new_driver.name = nil
-  
+      
       # Assert
       expect(new_driver.valid?).must_equal false
       expect(new_driver.errors.messages).must_include :name
       expect(new_driver.errors.messages[:name]).must_equal ["can't be blank"]
     end
-  
+    
     it "must have a VIN number" do
       # Arrange
       new_driver.vin = nil
-  
+      
       # Assert
       expect(new_driver.valid?).must_equal false
       expect(new_driver.errors.messages).must_include :vin
@@ -58,33 +58,42 @@ describe Driver do
     end
   end
   
-  # Tests for methods you create should go here
+  
   describe "custom methods" do
-    skip
+    
     describe "average rating" do
-      skip
-      # TODO
-      # Your code here
+      it "can calculate the average rating" do 
+        new_driver.save 
+        new_passenger = Passenger.create(name: "Kari", phone_num: "111-111-1211")
+        trip_1 = Trip.create(driver_id: new_driver.id, passenger_id: new_passenger.id, date: Date.today, rating: 5, cost: 1234)
+        trip_2 = Trip.create(driver_id: new_driver.id, passenger_id: new_passenger.id, date: Date.today, rating: 3, cost: 6334)
+        expect(new_driver.average_rating).must_equal 4
+      end 
     end
-  
+    
     describe "total earnings" do
-      skip
-      # TODO
-      # Your code here
+      it "can calculate the earnings" do 
+        new_driver.save 
+        new_passenger = Passenger.create(name: "Kari", phone_num: "111-111-1211")
+        trip_1 = Trip.create(driver_id: new_driver.id, passenger_id: new_passenger.id, date: Date.today, rating: 5, cost: 10)
+        trip_2 = Trip.create(driver_id: new_driver.id, passenger_id: new_passenger.id, date: Date.today, rating: 3, cost: 10) #14.68 (around this value)
+        
+        expect(new_driver.total_rides).must_equal 13.36
+      end 
     end
-  
-    describe "can go online" do
-      skip
-      # TODO
-      # Your code here
-    end
-  
-    describe "can go offline" do
-      skip
-      # TODO
-      # Your code here
-    end
-  
+    
+    # describe "can go online" do
+    #   skip
+    #   # TODO
+    #   # Your code here
+    # end
+    
+    # describe "can go offline" do
+    #   skip
+    #   # TODO
+    #   # Your code here
+    # end
+    
     # You may have additional methods to test
   end
 end

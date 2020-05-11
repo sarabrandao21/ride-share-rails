@@ -39,17 +39,17 @@ describe Passenger do
     it "must have a name" do
       # Arrange
       new_passenger.name = nil
-  
+      
       # Assert
       expect(new_passenger.valid?).must_equal false
       expect(new_passenger.errors.messages).must_include :name
       expect(new_passenger.errors.messages[:name]).must_equal ["can't be blank"]
     end
-  
+    
     it "must have a phone number" do
       # Arrange
       new_passenger.phone_num = nil
-  
+      
       # Assert
       expect(new_passenger.valid?).must_equal false
       expect(new_passenger.errors.messages).must_include :phone_num
@@ -57,6 +57,18 @@ describe Passenger do
     end
   end
   
+  
+  describe "total cost of passenger's trips" do 
+    it "can calcute total cost of trips" do 
+      
+      new_passenger.save 
+      new_driver = Driver.create(name: "Kari", vin: "123", available: true)
+      trip_1 = Trip.create(driver_id: new_driver.id, passenger_id: new_passenger.id, date: Date.today, rating: 5, cost: 10)
+      trip_2 = Trip.create(driver_id: new_driver.id, passenger_id: new_passenger.id, date: Date.today, rating: 3, cost: 10) #14.68 (around this value)
+      
+      expect(new_passenger.total_cost).must_equal 20
+    end 
+  end 
   # # Tests for methods you create should go here
   # describe "custom methods" do
   #   skip

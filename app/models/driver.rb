@@ -1,6 +1,6 @@
 class Driver < ApplicationRecord
   has_many :trips
-
+  
   validates :name, presence: true # requires every driver must have a name
   # note: vins actually have a fancy check sum validation, a basic regex would only catch the most obvious fake VINs - would need to make a more complex method to truly validate the vin
   validates :vin, presence: true#, format: /[A-HJ-NPR-Z0-9]{17}/ 
@@ -14,8 +14,17 @@ class Driver < ApplicationRecord
   end 
   
   def total_rides
+    #The driver gets 80% of the trip cost after a fee of $1.65 is subtracted
     total_cost = 0 
-    self.trips.each { |trip| total_cost += trip.cost }
+    self.trips.each do |trip| 
+      cost = trip.cost 
+      if cost > 1.65 
+        cost -= 1.65 
+        total_cost += (0.8 * cost)
+      else 
+        total_cost += cost #not charging driver if trip is less than 1.65 
+      end 
+    end 
     return total_cost
   end
 end
