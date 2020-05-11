@@ -58,33 +58,33 @@ describe Driver do
     end
   end
   
-  # # Tests for methods you create should go here
-  # describe "custom methods" do
-  #   skip
-  #   describe "average rating" do
-  #     skip
-  #     # TODO
-  #     # Your code here
-  #   end
+  # Tests for methods you create should go here
+  describe "custom methods" do
+    skip
+    describe "average rating" do
+      skip
+      # TODO
+      # Your code here
+    end
   
-  #   describe "total earnings" do
-  #     skip
-  #     # TODO
-  #     # Your code here
-  #   end
+    describe "total earnings" do
+      skip
+      # TODO
+      # Your code here
+    end
   
-  #   describe "can go online" do
-  #     skip
-  #     # TODO
-  #     # Your code here
-  #   end
+    describe "can go online" do
+      skip
+      # TODO
+      # Your code here
+    end
   
-  #   describe "can go offline" do
-  #     skip
-  #     # TODO
-  #     # Your code here
-  #   end
+    describe "can go offline" do
+      skip
+      # TODO
+      # Your code here
+    end
   
-  #   # You may have additional methods to test
-  # end
+    # You may have additional methods to test
+  end
 end

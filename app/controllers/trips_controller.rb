@@ -30,11 +30,12 @@ class TripsController < ApplicationController
 
   def create
     driver = Trip.find_driver
+    date = Date.today
     @trip = Trip.new(
       passenger_id: params[:passenger_id], 
       rating: nil, 
       cost: rand(1..100).to_f, 
-      date: Date.today, 
+      date: date, 
       driver_id: driver.id
     )
     if @trip.save
@@ -48,9 +49,10 @@ class TripsController < ApplicationController
     end
   end
 
-  # def new
-  #   @trip = Trip.new
-  # end
+  # TODO ? Do we need this?
+  def new
+    @trip = Trip.new
+  end
 
   def edit
     @trip = Trip.find_by(id: params[:id])
@@ -63,6 +65,8 @@ class TripsController < ApplicationController
 
   def update
     @trip = Trip.find_by(id: params[:id])
+
+
     if @trip.nil?
       head :not_found
       return
@@ -70,7 +74,7 @@ class TripsController < ApplicationController
       redirect_to trip_path(@trip.id) # Send them to the trip just edited
       return
     else
-      render :edit
+      render :show
       return
     end
   end
@@ -78,7 +82,7 @@ class TripsController < ApplicationController
   private
 
   def trip_params
-    return params.require(:trip).permit(:date, :driver_id, :passenger_id, :cost, :rating)
+    return params.require(:trip).permit(:rating, :cost, :driver_id, :passenger_id, :date)
   end
 
 end
