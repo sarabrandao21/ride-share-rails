@@ -3,10 +3,12 @@ class TripsController < ApplicationController
   # TODO do we need index?
   def index
     
-    if params[:passenger_id] != nil 
-      @trips = Passenger.find_by(id: params[:passenger_id]).trips
+    if params[:passenger_id] != nil
+      @passenger = Passenger.find_by(id: params[:passenger_id])
+      @trips = @passenger.trips
     elsif params[:driver_id] != nil
-      @trips = Driver.find_by(id: params[:driver_id]).trips
+      @driver = Driver.find_by(id: params[:driver_id])
+      @trips = @driver.trips
     else 
       @trips = Trip.all
     end
