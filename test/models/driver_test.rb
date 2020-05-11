@@ -35,44 +35,53 @@ describe Driver do
     end
   end
   
-  # describe "validations" do
+  describe "validations" do
   
-  #   it "must have a name" do
-  #     # Arrange
-  #     new_driver.name = nil
+    it "must have a name" do
+      # Arrange
+      new_driver.name = nil
   
-  #     # Assert
-  #     expect(new_driver.valid?).must_equal false
-  #     expect(new_driver.errors.messages).must_include :name
-  #     expect(new_driver.errors.messages[:name]).must_equal ["can't be blank"]
-  #   end
+      # Assert
+      expect(new_driver.valid?).must_equal false
+      expect(new_driver.errors.messages).must_include :name
+      expect(new_driver.errors.messages[:name]).must_equal ["can't be blank"]
+    end
   
-  #   it "must have a VIN number" do
-  #     # Arrange
-  #     new_driver.vin = nil
+    it "must have a VIN number" do
+      # Arrange
+      new_driver.vin = nil
   
-  #     # Assert
-  #     expect(new_driver.valid?).must_equal false
-  #     expect(new_driver.errors.messages).must_include :vin
-  #     expect(new_driver.errors.messages[:vin]).must_equal ["can't be blank"]
-  #   end
-  # end
+      # Assert
+      expect(new_driver.valid?).must_equal false
+      expect(new_driver.errors.messages).must_include :vin
+      expect(new_driver.errors.messages[:vin]).must_equal ["can't be blank"]
+    end
+  end
   
   # # Tests for methods you create should go here
   # describe "custom methods" do
+  #   skip
   #   describe "average rating" do
+  #     skip
+  #     # TODO
   #     # Your code here
   #   end
   
   #   describe "total earnings" do
+  #     skip
+  #     # TODO
   #     # Your code here
   #   end
   
   #   describe "can go online" do
+  #     skip
+  #     # TODO
   #     # Your code here
   #   end
   
   #   describe "can go offline" do
+  #     skip
+  #     # TODO
   #     # Your code here
   #   end
   

@@ -8,7 +8,7 @@ class PassengersController < ApplicationController
     passenger_id = params[:id]
     @passenger = Passenger.find_by(id: passenger_id)
     if @passenger.nil?
-      head :not_found # This would be the better way to do this
+      head :not_found
       return
     end
   end

@@ -55,7 +55,7 @@ describe PassengersController do
       passenger_hash = {
         passenger: {
           name: "new passenger",
-          phone_num: "new passenger phone_num",
+          phone_num: "2064376785", # TODO should also test non valid phone number
         },
       }
       expect {
@@ -71,6 +71,8 @@ describe PassengersController do
       
     end
     it "does not create a passenger if the form data violates Passenger validations, and responds with a redirect" do
+      skip
+      # TODO
       # Note: This will not pass until ActiveRecord Validations lesson
       
     end
@@ -131,9 +133,11 @@ describe PassengersController do
       
     end
     
-    it "does not create a passenger if the form data violates passenger validations, and responds with a redirect" do
-      # Note: This will not pass until ActiveRecord Validations lesson TODO
-    end
+    # it "does not create a passenger if the form data violates passenger validations, and responds with a redirect" do
+    #   skip
+    #   # TODO
+    #   # Note: This will not pass until ActiveRecord Validations lesson 
+    # end
   end
   
   describe "destroy" do

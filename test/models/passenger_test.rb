@@ -35,35 +35,40 @@ describe Passenger do
     end
   end
   
-  # describe "validations" do
-  #   it "must have a name" do
-  #     # Arrange
-  #     new_passenger.name = nil
+  describe "validations" do
+    it "must have a name" do
+      # Arrange
+      new_passenger.name = nil
   
-  #     # Assert
-  #     expect(new_passenger.valid?).must_equal false
-  #     expect(new_passenger.errors.messages).must_include :name
-  #     expect(new_passenger.errors.messages[:name]).must_equal ["can't be blank"]
-  #   end
+      # Assert
+      expect(new_passenger.valid?).must_equal false
+      expect(new_passenger.errors.messages).must_include :name
+      expect(new_passenger.errors.messages[:name]).must_equal ["can't be blank"]
+    end
   
-  #   it "must have a phone number" do
-  #     # Arrange
-  #     new_passenger.phone_num = nil
+    it "must have a phone number" do
+      # Arrange
+      new_passenger.phone_num = nil
   
-  #     # Assert
-  #     expect(new_passenger.valid?).must_equal false
-  #     expect(new_passenger.errors.messages).must_include :phone_num
-  #     expect(new_passenger.errors.messages[:phone_num]).must_equal ["can't be blank"]
-  #   end
-  # end
+      # Assert
+      expect(new_passenger.valid?).must_equal false
+      expect(new_passenger.errors.messages).must_include :phone_num
+      expect(new_passenger.errors.messages[:phone_num]).must_equal ["can't be blank"]
+    end
+  end
   
   # # Tests for methods you create should go here
   # describe "custom methods" do
+  #   skip
   #   describe "request a ride" do
+  #     skip
+  #     # TODO
   #     # Your code here
   #   end
   
   #   describe "complete trip" do
+  #     skip
+  #     # TODO
   #     # Your code here
   #   end
   #   # You may have additional methods to test here
