@@ -3,18 +3,44 @@
 <p><strong>Phone Number: </strong><%= @passenger.phone_num %></p>
 <p><strong>Total Charged: </strong><%= number_to_currency(@passenger.total_cost) %></p>
 
-
-<%# <!-- For add new trip I think the trick will be the new action or create action related to nested routes. Example from lecture is "" < % = link_to "New book by #{@author.name}", new_author_book_path(@author.id) % > --> %>
-
-<p>
-<%= link_to "Add New Trip", passenger_trips_path(@passenger.id), method: :post %> | <%= link_to "View Trips", passenger_trips_path(@passenger.id) %> 
-</p>
-
 <p>
 <%= link_to "Edit", edit_passenger_path(@passenger.id) %> | 
 <%= link_to "Delete", passenger_path(@passenger.id), method: :delete, data: {confirm: "Are you sure?"} %>
 </p>
 
+<h3>Trips</h3>
+
+<section class="button">
+  <%= link_to "Add New Trip", passenger_trips_path(@passenger.id), method: :post %>
+</section>
+  <table class="table table-hover">
+    <tr>
+      <th>ID</th>
+      <th>Date</th>
+      <th>Driver</th>
+      <th>Cost</th>
+      <th>Rating</th>
+    </tr>
+    <% @passenger.trips.each do |trip|  %>
+      <tr>
+        <td>
+          <%= link_to trip.id, trip_path(trip.id) %>
+        </td>
+        <td>
+          <%= trip.date.strftime("%m/%d/%Y")%>
+        </td>
+        <td>
+           <%= link_to trip.driver_id, driver_path(trip.driver) %>
+        </td>
+        <td>
+          <%= number_to_currency(trip.cost) %>
+        </td>
+        <td>
+          <%= trip.rating %>
+        </td>
+      </tr>
+  <% end %>
+  </table>
 
 <p> <%= link_to "Return to Riders List", passengers_path %> </p>
 
