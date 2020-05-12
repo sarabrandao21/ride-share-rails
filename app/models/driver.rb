@@ -14,7 +14,7 @@ class Driver < ApplicationRecord
   end 
   
   def total_rides
-    #The driver gets 80% of the trip cost after a fee of $1.65 is subtracted
+    
     total_cost = 0 
     self.trips.each do |trip| 
       cost = trip.cost 
@@ -22,7 +22,7 @@ class Driver < ApplicationRecord
         cost -= 1.65 
         total_cost += (0.8 * cost)
       else 
-        total_cost += cost #not charging driver if trip is less than 1.65 
+        total_cost += cost 
       end 
     end 
     return total_cost
