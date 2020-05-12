@@ -130,7 +130,7 @@ describe DriversController do
     # it "does not update a driver if the form data violates Driver validations, and responds with a redirect" do
     #   skip
     #   # TODO
-    #   # Note: This will not pass until ActiveRecord Validations lesson TODO
+    #   # Note: This will not pass until ActiveRecord Validations lesson
     #   # Arrange
     #   # Ensure there is an existing driver saved
     #   # Assign the existing driver's id to a local variable

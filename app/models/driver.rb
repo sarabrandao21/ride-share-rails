@@ -7,6 +7,7 @@ class Driver < ApplicationRecord
   # TODO - add vin verification back in, hiding for ease of creating new records during build
   # requires vin must have a value, and that it must be a combination of 17 numbers and certain capital letters.
   
+  # TODO - handle if rating is nil so it doesn't break the details page
   def average_rating
     all_ratings = self.trips.map { |trip| trip.rating }
     sum = all_ratings.sum

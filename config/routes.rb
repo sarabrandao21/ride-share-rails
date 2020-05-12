@@ -4,15 +4,11 @@ Rails.application.routes.draw do
   root to: 'homepages#index'
   
   resources :trips
-  
-  # ? TODO Do we need some kind of patch to say trips are complete ?
-  
+    
   resources :drivers do
     resources :trips, only: [:index, :new]
   end
-  
-  # TODO need some kind of patch to say if a driver is active or not
-  
+    
   resources :passengers do
     resources :trips, only: [:index, :create, :new]
   end
