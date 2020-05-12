@@ -14,7 +14,7 @@ Rails.application.routes.draw do
   # TODO need some kind of patch to say if a driver is active or not
   
   resources :passengers do
-    resources :trips, only: [:index, :new]
+    resources :trips, only: [:index, :create, :new]
   end
   
   

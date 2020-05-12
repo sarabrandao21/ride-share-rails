@@ -1,5 +1,7 @@
 class TripsController < ApplicationController
   
+
+  # TODO - I don't think this if system works, because both passenger_id and driver_id are going to be required because they're both nested. But I also don't think we need to call trips index anywhere.
   def index
     if params[:passenger_id] != nil
       @passenger = Passenger.find_by(id: params[:passenger_id])
@@ -40,20 +42,19 @@ class TripsController < ApplicationController
   def create
     driver = Trip.find_driver
     date = Date.today
+    cost = rand(1..100).to_f
     @trip = Trip.new(
       passenger_id: params[:passenger_id], 
       rating: nil, 
-      cost: rand(1..100).to_f, 
+      cost: cost,
       date: date, 
       driver_id: driver.id
     )
     if @trip.save
-      driver.available = "false"
-      driver.save
-      redirect_to passenger_path(params[:passenger_id]) # Send them to the trip just created
+      redirect_to trip_path(@trip.id) # Send them to the trip just created
       return
     else
-      render :new, status: :bad_request # show the new trip form again
+      redirect_to passenger_path(params[:passenger_id])
       return
     end
   end
