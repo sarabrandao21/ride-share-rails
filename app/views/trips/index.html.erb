@@ -6,7 +6,7 @@
 <h3> <%= @passenger.name %>'s Trips</h3>
 <% end %>
 <%# TODO if we have time, I'd like to move the trips back to the show pages rather than index. With the index we have to show both rider/driver regardless of if we are on the driver / rider page, so there's a long list that's the same. Displaying the list on driver/rider show views let us customize the view for the drivers (don't show the same repeated driver ID) and riders (don't show the same repeated rider ID ) %>
-  <table>
+  <table class="table">
     <tr>
       <th>ID</th>
       <th>Date</th>

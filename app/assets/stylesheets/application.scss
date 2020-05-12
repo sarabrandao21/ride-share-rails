@@ -11,9 +11,10 @@
  * It is generally better to create a new file per style scope.
  *
  */
-      /* Custom bootstrap variables must be set or imported *before* bootstrap. */
-      @import "bootstrap";
-      @import "**/*";
+ 
+/* Custom bootstrap variables must be set or imported *before* bootstrap. */
+@import "bootstrap";
+@import "**/*";
 
 
      body {
@@ -138,6 +139,10 @@
           display: flex;
           flex-direction: row
       }
+
+      .button-submit {
+          margin-top: 10px     
+      }
       
       .button a {
           border: 2px solid #ffaaab;
@@ -170,6 +175,8 @@
           padding-left: 30px;
           padding-right: 30px
       }
+
+      /* Table styling */
       
       table {
           margin: 20px
@@ -182,8 +189,14 @@
       td,th {
           text-align: center
       }
-      
-      .edit-passenger,.create-passenger,.edit-driver,.create-driver {
+
+      .name-table {
+          width: 250px
+      }
+
+      /* Form styling */
+
+      .people-form {
           display: grid;
           grid-template-columns: 200px 400px;
           row-gap: 0.5em;
@@ -195,5 +208,7 @@
           grid-template-columns: 200px;
           row-gap: -0.2em
       }
-     
+
+      /* CSS inspired by http://spooky-ride-share.herokuapp.com/ */
+      
       

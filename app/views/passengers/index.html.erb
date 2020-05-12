@@ -1,8 +1,9 @@
 <h2>Riders</h2>
+<section class="button">
+  <%= link_to "Add a New Rider", new_passenger_path %>
+</section>
 
-<h4><%= link_to "Add a New Rider", new_passenger_path %></h4>
-  
-  <table>
+  <table class="table table-hover name-table">
     <tr>
       <th>Rider Name</th>
     </tr>
@@ -14,4 +15,5 @@
       </tr>
   <% end %>
   </table>
+
 
