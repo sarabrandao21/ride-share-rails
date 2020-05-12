@@ -9,9 +9,20 @@ class Driver < ApplicationRecord
   
   # TODO - handle if rating is nil so it doesn't break the details page
   def average_rating
-    all_ratings = self.trips.map { |trip| trip.rating }
-    sum = all_ratings.sum
-    return sum / all_ratings.length.to_f
+    all_ratings = []
+    self.trips.each do |trip| 
+      if !trip.rating.nil?
+        all_ratings << trip.rating 
+      end 
+    end 
+    
+    if all_ratings.empty? 
+      return 0 
+    else 
+      sum = all_ratings.sum
+      return sum / all_ratings.length.to_f
+    end 
+    
   end 
   
   def total_rides
