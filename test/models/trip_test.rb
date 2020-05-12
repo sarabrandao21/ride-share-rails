@@ -53,16 +53,6 @@ describe Trip do
       expect(new_trip.errors.messages[:date]).must_equal ["can't be blank"]
     end 
 
-    # it "should have rating" do 
-    #   skip
-    #   # TODO - Should every trip have a rating? Or can a trip not have a rating?
-    #   new_trip.rating = nil 
-
-    #   expect(new_trip.valid?).must_equal false 
-    #   expect(new_trip.errors.messages).must_include :rating
-    #   expect(new_trip.errors.messages[:rating]).must_equal ["can't be blank"]
-
-    # end 
     it "should have a cost" do 
       new_trip.cost = nil 
 
@@ -72,11 +62,3 @@ describe Trip do
     end
   end 
 end
-
-# Tests for methods you create should go here
-# describe "custom methods" do
-#   skip
-#   # TODO
-#   # Your tests here
-# end
-

@@ -55,7 +55,7 @@ describe PassengersController do
       passenger_hash = {
         passenger: {
           name: "new passenger",
-          phone_num: "2064376785", # TODO should also test non valid phone number
+          phone_num: "2064376785",
         },
       }
       expect {

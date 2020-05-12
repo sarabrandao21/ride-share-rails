@@ -2,9 +2,7 @@ class Passenger < ApplicationRecord
   has_many :trips
 
   validates :name, presence: true # requires every rider must have a name
-  validates :phone_num, presence: true#, format: /([0-9]){0,1}[\.\s\-]?[\\(\.\s\-]{0,1}([0-9]){3}[\\)\.\s\-]{0,1}[\.\s\-]?([^0-1]){1}([0-9]){2}[\.\s\-]?[-]?[\.\s\-]?([0-9]){4}[ ]*((x){0,1}([0-9]){1,5}){0,1}/ 
-  # requires phone_num must have a value, and that it must be a valid format
-  # TODO regex failed for phone number format 111-111-1211 - turned off for now
+  validates :phone_num, presence: true
   
   def total_cost 
     total_cost = 0 
