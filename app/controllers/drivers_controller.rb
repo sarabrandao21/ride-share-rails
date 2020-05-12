@@ -47,7 +47,7 @@ class DriversController < ApplicationController
     @driver = Driver.new(
       name: params[:driver][:name],
       vin: params[:driver][:vin],
-      available: true # TODO add logic to make driver available by default
+      available: true 
     )
     if @driver.save
       redirect_to driver_path(@driver.id) 

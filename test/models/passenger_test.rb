@@ -69,20 +69,5 @@ describe Passenger do
       expect(new_passenger.total_cost).must_equal 20
     end 
   end 
-  # # Tests for methods you create should go here
-  # describe "custom methods" do
-  #   skip
-  #   describe "request a ride" do
-  #     skip
-  #     # TODO
-  #     # Your code here
-  #   end
   
-  #   describe "complete trip" do
-  #     skip
-  #     # TODO
-  #     # Your code here
-  #   end
-  #   # You may have additional methods to test here
-  # end
 end
