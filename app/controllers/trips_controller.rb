@@ -1,6 +1,6 @@
 class TripsController < ApplicationController
   
-  # TODO do we need index?
+  
   def index
     
     if params[:passenger_id] != nil
