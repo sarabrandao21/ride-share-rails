@@ -4,8 +4,8 @@ class CreateDrivers < ActiveRecord::Migration[6.0]
       t.string :name
       t.string :vin
       t.boolean :available
-
-      # TODO do we need timestamps here?
+      
+      
       t.timestamps
     end
   end

@@ -82,18 +82,5 @@ describe Driver do
       end 
     end
     
-    # describe "can go online" do
-    #   skip
-    #   # TODO
-    #   # Your code here
-    # end
-    
-    # describe "can go offline" do
-    #   skip
-    #   # TODO
-    #   # Your code here
-    # end
-    
-    # You may have additional methods to test
   end
-end
+  

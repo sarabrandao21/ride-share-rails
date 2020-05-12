@@ -1,6 +1,6 @@
 class TripsController < ApplicationController
   
-
+  
   # TODO - I don't think this if system works, because both passenger_id and driver_id are going to be required because they're both nested. But I also don't think we need to call trips index anywhere.
   def index
     if params[:passenger_id] != nil
@@ -36,7 +36,7 @@ class TripsController < ApplicationController
     redirect_to trips_path
     return
   end
-
+  
   # TODO We need to add nested route for trips / passengers so we can create without a form using the current passenger.
   
   def create
