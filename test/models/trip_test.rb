@@ -1,9 +1,16 @@
 require "test_helper"
 
 describe Trip do
-  let (:new_trip) {
-    Trip.new(date: Date.today, rating: 5, cost: 5.0)
+  let (:driver) {
+    Driver.create(name: "Nora", vin: "ALWSS52P9NEYLVDE8", available: true )
   }
+  let (:passenger) {
+    Passenger.create(name: "Kari", phone_num: "111-111-1211")
+  }
+  let (:new_trip) {
+    Trip.create(passenger_id: passenger.id, driver_id: driver.id, date: Date.today, rating: nil, cost: 3000)
+  }
+
   it "can be instantiated" do
     # Your code here
 

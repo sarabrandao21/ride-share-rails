@@ -6,13 +6,19 @@ class Trip < ApplicationRecord
   validates :cost, presence: true # requires every trip must have a cost
   
   def self.find_driver 
-    @drivers = Driver.all 
+    driver = Driver.all.select {|driver| driver.available == true }.first
+    driver.available = false
+    driver.save
+    return driver
     
-    @drivers.each do |driver|
-      if driver.available == "false"
-        return driver
-      end
-    end
+    # @drivers.each do |driver|
+    #   if driver.available == true
+    #     chosen_driver = driver
+    #     driver.available = false
+    #     driver.save
+    #     return driver.first
+    #   end
+    # end
   end
 
 end

@@ -9,13 +9,27 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
   <header>
-    <h1>Welcome to Ada Ride Share</h1>
-    <nav>
-      <ul>
-        <li><a href="/">Home</a></li>
-        <li><%= link_to "Riders", passengers_path %></li>
-        <li><%= link_to "Drivers", drivers_path %></li>
-      </ul>
+  <nav>
+    <h1>New Friends Ride Share</h1>
+    
+    <div>
+      <button class="home-btn"><a href="/">Home </a></button>
+    </div>
+    <div class="dropdown">
+      <button class="dropbtn"><%= link_to "Riders ", passengers_path %></button>
+      <div class="dropdown-content">
+        <%= link_to "View All Riders", passengers_path %> 
+        <%= link_to "Add a New Rider", new_passenger_path %>
+      </div>
+    </div>
+    <div class="dropdown">
+      <button class="dropbtn"><%= link_to "Drivers ", drivers_path %></button>
+      <div class="dropdown-content">
+          <%= link_to "View All Drivers", drivers_path %>
+          <%= link_to "Add a New Driver", new_driver_path %>
+      </div>
+    </div>
+
     </nav>
   </header>
   <body>
