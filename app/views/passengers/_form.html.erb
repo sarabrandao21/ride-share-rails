@@ -1,24 +1,26 @@
-<% if @passenger.errors.any? %>
-  <ul class="errors">
-    <% @passenger.errors.each do |column, message| %>
-      <li>
-        <strong><%= column.capitalize %></strong> <%= message %>
-      </li>
-    <% end %>
-  </ul>
-<% end %>
+<section class="people-form">
+  <% if @passenger.errors.any? %>
+    <ul class="errors">
+      <% @passenger.errors.each do |column, message| %>
+        <li>
+          <strong><%= column.capitalize %></strong> <%= message %>
+        </li>
+      <% end %>
+    </ul>
+  <% end %>
 
 
-<%= form_with model: @passenger, class: 'create-form' do |f| %>
-  <div>
-    <%= f.label :name %>
-    <%= f.text_field :name %>
-  </div>
-  <div>
-    <%= f.label "Phone Number" %>
-    <%= f.text_field :phone_num %>
-  </div>
-  <div>
-    <%= f.submit action_name, class: "passenger-button"%>
-  </div>
-<% end %>
+  <%= form_with model: @passenger, class: 'create-form' do |f| %>
+    <div>
+      <%= f.label :name %>
+      <%= f.text_field :name %>
+    </div>
+    <div>
+      <%= f.label "Phone Number" %>
+      <%= f.text_field :phone_num %>
+    </div>
+    <div>
+      <%= f.submit action_name, class: "button-submit"%>
+    </div>
+  <% end %>
+</section>
