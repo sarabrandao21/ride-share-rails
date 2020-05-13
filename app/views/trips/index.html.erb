@@ -3,7 +3,7 @@
 <% if @driver.nil? && @passenger.nil? % >
 <h3>Trips</h3>
 <%elsif !@driver.nil? %>
-<h3> <%= @driver.name %>'s Trips</h3>
+<h3> <%=  @driver.name %>'s Trips</h3>
 <% elsif !@passenger.nil? %>
 <h3> <%= @passenger.name %>'s Trips</h3>
 <% end %>

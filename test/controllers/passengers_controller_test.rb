@@ -71,9 +71,13 @@ describe PassengersController do
       
     end
     it "does not create a passenger if the form data violates Passenger validations, and responds with a redirect" do
-      skip
-      # TODO
-      # Note: This will not pass until ActiveRecord Validations lesson
+      invalid_passenger = Passenger.new(name: "", phone_num: "")
+      expect(invalid_passenger.valid?).must_equal false 
+      expect(invalid_passenger.errors.messages).must_include :name
+      expect(invalid_passenger.errors.messages[:name]).must_equal ["can't be blank"]
+      expect(invalid_passenger.errors.messages).must_include :phone_num
+      expect(invalid_passenger.errors.messages[:phone_num]).must_equal ["can't be blank"]
+      
       
     end
   end
@@ -133,11 +137,9 @@ describe PassengersController do
       
     end
     
-    # it "does not create a passenger if the form data violates passenger validations, and responds with a redirect" do
-    #   skip
-    #   # TODO
-    #   # Note: This will not pass until ActiveRecord Validations lesson 
-    # end
+    it "does not create a passenger if the form data violates passenger validations, and responds with a redirect" do
+      
+    end
   end
   
   describe "destroy" do

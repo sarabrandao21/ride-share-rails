@@ -63,18 +63,14 @@ describe DriversController do
       
     end
     
-    it "does not create a driver if the form data violates Driver validations, and responds with a redirect" do
-      # skip
-      # TODO
-      # Note: This will not pass until ActiveRecord Validations lesson
-      # Arrange
-      # Set up the form data so that it violates Driver validations
+    it "does not create a driver if the form data violates Driver validations" do
+      invalid_driver = Driver.new(name: "", vin: "", available: true)
+      expect(invalid_driver.valid?).must_equal false 
+      expect(invalid_driver.errors.messages).must_include :name
+      expect(invalid_driver.errors.messages[:name]).must_equal ["can't be blank"]
+      expect(invalid_driver.errors.messages).must_include :vin
+      expect(invalid_driver.errors.messages[:vin]).must_equal ["can't be blank"] 
       
-      # Act-Assert
-      # Ensure that there is no change in Driver.count
-      
-      # Assert
-      # Check that the controller redirects
       
     end
   end
@@ -127,22 +123,9 @@ describe DriversController do
       must_respond_with :not_found
     end
     
-    # it "does not update a driver if the form data violates Driver validations, and responds with a redirect" do
-    #   skip
-    #   # TODO
-    #   # Note: This will not pass until ActiveRecord Validations lesson
-    #   # Arrange
-    #   # Ensure there is an existing driver saved
-    #   # Assign the existing driver's id to a local variable
-    #   # Set up the form data so that it violates Driver validations
+    it "does not update a driver if the form data violates Driver validations, and responds with a redirect" do
       
-    #   # Act-Assert
-    #   # Ensure that there is no change in Driver.count
-      
-    #   # Assert
-    #   # Check that the controller redirects
-      
-    # end
+    end
   end
   
   describe "destroy" do 
