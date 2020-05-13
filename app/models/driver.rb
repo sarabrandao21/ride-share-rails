@@ -5,6 +5,8 @@ class Driver < ApplicationRecord
   # note: vins actually have a fancy check sum validation, a basic regex would only catch the most obvious fake VINs - would need to make a more complex method to truly validate the vin
   validates :vin, presence: true
   # format: /[A-HJ-NPR-Z0-9]{17}/  would require vin must have a value, and that it must be a combination of 17 numbers and certain capital letters.
+  validates :vin, presence: true  
+  # format: /[A-HJ-NPR-Z0-9]{17}/ requires vin must have a value, and that it must be a combination of 17 numbers and certain capital letters.
   
   
   def average_rating
